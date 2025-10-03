@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SFILS.Pages;
 
 namespace SFILS.Pages
 {
@@ -11,6 +12,7 @@ namespace SFILS.Pages
         protected SFILS_Context()
         {
         }
+        public DbSet<SFILS.Pages.Patron> Patron { get; set; } = default!;
     }
 }
  

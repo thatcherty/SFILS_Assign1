@@ -1,20 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace SFILS.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly SFILS.Pages.SFILS_Context _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(SFILS.Pages.SFILS_Context context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public void OnGet()
-        {
+        public IList<Patron> Patron { get;set; } = default!;
 
+        public async Task OnGetAsync()
+        {
+            Patron = await _context.Patron.AsNoTracking()
+                                .OrderBy(p => p.Patron_Id)
+                                .Take(50)
+                                .ToListAsync();
         }
     }
 }

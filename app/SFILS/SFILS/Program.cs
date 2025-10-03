@@ -6,8 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+var cs = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<SFILS_Context>(options =>
-            options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseMySql(cs, ServerVersion.AutoDetect(cs)));
 
 var app = builder.Build();
 

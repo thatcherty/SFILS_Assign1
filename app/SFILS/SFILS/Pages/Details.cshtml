@@ -1,0 +1,85 @@
+﻿@page
+@model SFILS.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Patron</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Patron_Type_Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Patron_Type_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Age_Range_Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Age_Range_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Home_Library_Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Home_Library_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Notif_Pref_Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Notif_Pref_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Provided_Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Provided_Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Within_County)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Within_County)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Year_Reg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Year_Reg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Total_Checkouts)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Total_Checkouts)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Total_Renewals)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Total_Renewals)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Circ_Active_Mo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Circ_Active_Mo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patron.Circ_Active_Yr)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patron.Circ_Active_Yr)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Patron.Patron_Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

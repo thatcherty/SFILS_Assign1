@@ -1,10 +1,96 @@
 ﻿@page
-@model IndexModel
+@model SFILS.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Patron_Type_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Age_Range_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Home_Library_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Notif_Pref_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Provided_Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Within_County)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Year_Reg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Total_Checkouts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Total_Renewals)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Circ_Active_Mo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].Circ_Active_Yr)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Patron) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patron_Type_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age_Range_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home_Library_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notif_Pref_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provided_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Within_County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year_Reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Checkouts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Renewals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Circ_Active_Mo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Circ_Active_Yr)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Patron_Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Patron_Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Patron_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

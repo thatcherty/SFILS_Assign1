@@ -1,0 +1,85 @@
+﻿@page
+@model SFILS.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Patron</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Patron.Patron_Id" />
+            <div class="form-group">
+                <label asp-for="Patron.Patron_Type_Code" class="control-label"></label>
+                <input asp-for="Patron.Patron_Type_Code" class="form-control" />
+                <span asp-validation-for="Patron.Patron_Type_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Age_Range_Code" class="control-label"></label>
+                <input asp-for="Patron.Age_Range_Code" class="form-control" />
+                <span asp-validation-for="Patron.Age_Range_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Home_Library_Code" class="control-label"></label>
+                <input asp-for="Patron.Home_Library_Code" class="form-control" />
+                <span asp-validation-for="Patron.Home_Library_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Notif_Pref_Code" class="control-label"></label>
+                <input asp-for="Patron.Notif_Pref_Code" class="form-control" />
+                <span asp-validation-for="Patron.Notif_Pref_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Provided_Email" class="control-label"></label>
+                <input asp-for="Patron.Provided_Email" class="form-control" />
+                <span asp-validation-for="Patron.Provided_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Within_County" class="control-label"></label>
+                <input asp-for="Patron.Within_County" class="form-control" />
+                <span asp-validation-for="Patron.Within_County" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Year_Reg" class="control-label"></label>
+                <input asp-for="Patron.Year_Reg" class="form-control" />
+                <span asp-validation-for="Patron.Year_Reg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Total_Checkouts" class="control-label"></label>
+                <input asp-for="Patron.Total_Checkouts" class="form-control" />
+                <span asp-validation-for="Patron.Total_Checkouts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Total_Renewals" class="control-label"></label>
+                <input asp-for="Patron.Total_Renewals" class="form-control" />
+                <span asp-validation-for="Patron.Total_Renewals" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Circ_Active_Mo" class="control-label"></label>
+                <input asp-for="Patron.Circ_Active_Mo" class="form-control" />
+                <span asp-validation-for="Patron.Circ_Active_Mo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.Circ_Active_Yr" class="control-label"></label>
+                <input asp-for="Patron.Circ_Active_Yr" class="form-control" />
+                <span asp-validation-for="Patron.Circ_Active_Yr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
