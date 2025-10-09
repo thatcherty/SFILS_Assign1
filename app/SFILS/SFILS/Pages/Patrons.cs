@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SFILS.Pages
@@ -43,17 +44,23 @@ namespace SFILS.Pages
         [Column("circ_active_yr")]
         public string? Circ_Active_Yr { get; set; }
 
+        // --- Navigation properties (not posted by the form) ---
         [ForeignKey(nameof(Patron_Type_Code))]
-        public PatronTypes Patron_Type { get; set; } = null!;
+        [ValidateNever]                      // <- prevent validation errors
+        public PatronTypes? Patron_Type { get; set; }
 
         [ForeignKey(nameof(Age_Range_Code))]
-        public AgeRanges Age_Range { get; set; } = null!;
+        [ValidateNever]
+        public AgeRanges? Age_Range { get; set; }
 
         [ForeignKey(nameof(Home_Library_Code))]
-        public HomeLibraries Home_Library { get; set; } = null!;
+        [ValidateNever]
+        public HomeLibraries? Home_Library { get; set; }
 
         [ForeignKey(nameof(Notif_Pref_Code))]
-        public Notification_Pref Notification_Pref { get; set; } = null!;
+        [ValidateNever]
+        public Notification_Pref? Notification_Pref { get; set; }
+
     }
 
     [Table("patron_types")]

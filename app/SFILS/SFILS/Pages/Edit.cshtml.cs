@@ -32,6 +32,7 @@ namespace SFILS.Pages
             if (!ModelState.IsValid)
             {
                 await LoadLookupsAsync();
+                return Page();
             }
 
             var existing = await db.Patron.FindAsync(Patron.Patron_Id);
