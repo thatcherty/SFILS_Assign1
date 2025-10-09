@@ -55,9 +55,9 @@ namespace SFILS.Pages
                 nameof(SFILS.Pages.AgeRanges.Age_Range));
 
             HomeLibraryOptions = new SelectList(
-                await db.HomeLibraries.AsNoTracking().OrderBy(x => x.Home_Library).ToListAsync(),
+                await db.HomeLibraries.AsNoTracking().OrderBy(x => x.Home_Library_Code).ToListAsync(),
                 nameof(SFILS.Pages.HomeLibraries.Home_Library_Code),
-                nameof(SFILS.Pages.HomeLibraries.Home_Library));
+                nameof(SFILS.Pages.HomeLibraries.Home_Library_Code));
 
             NotificationPrefOptions = new SelectList(
                 await db.Notification_Pref.AsNoTracking().OrderBy(x => x.Notif_Pref).ToListAsync(),

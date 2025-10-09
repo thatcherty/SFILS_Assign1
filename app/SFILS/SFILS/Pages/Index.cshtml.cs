@@ -106,9 +106,15 @@ namespace SFILS.Pages
                 await db.AgeRanges.AsNoTracking().OrderBy(x => x.Age_Range).ToListAsync(),
                 nameof(AgeRanges.Age_Range_Code), nameof(AgeRanges.Age_Range), ageRange);
 
-            HomeLibraryOptions = new SelectList(
-                await db.HomeLibraries.AsNoTracking().OrderBy(x => x.Home_Library).ToListAsync(),
-                nameof(HomeLibraries.Home_Library_Code), nameof(HomeLibraries.Home_Library), homeLib);
+            var hlItems = await db.HomeLibraries.AsNoTracking()
+                .OrderBy(x => x.Home_Library_Code)
+                .Select(x => new {
+                    Value = x.Home_Library_Code,
+                    Text = x.Home_Library_Code + " — " + x.Home_Library
+                })
+                .ToListAsync();
+
+            HomeLibraryOptions = new SelectList(hlItems, "Value", "Text", homeLib);
 
             NotificationPrefOptions = new SelectList(
                 await db.Notification_Pref.AsNoTracking().OrderBy(x => x.Notif_Pref).ToListAsync(),
