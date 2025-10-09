@@ -32,34 +32,63 @@ namespace SFILS.Pages
             if (!ModelState.IsValid)
             {
                 await LoadLookupsAsync();
-                return Page();
             }
 
-            db.Attach(Patron).State = EntityState.Modified;
-            await db.SaveChangesAsync();
-            return RedirectToPage("Index");
+            var existing = await db.Patron.FindAsync(Patron.Patron_Id);
+            if (existing is null) return NotFound();
+
+
+            existing.Patron_Type_Code = Patron.Patron_Type_Code;
+            existing.Age_Range_Code = Patron.Age_Range_Code;
+            existing.Home_Library_Code = Patron.Home_Library_Code;
+            existing.Notif_Pref_Code = Patron.Notif_Pref_Code;
+
+            existing.Provided_Email = Patron.Provided_Email; 
+            existing.Within_County = Patron.Within_County;  
+
+            existing.Year_Reg = Patron.Year_Reg;
+            existing.Total_Checkouts = Patron.Total_Checkouts;
+            existing.Total_Renewals = Patron.Total_Renewals;
+            existing.Circ_Active_Mo = Patron.Circ_Active_Mo;
+            existing.Circ_Active_Yr = Patron.Circ_Active_Yr;
+
+            try
+            {
+                await db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            catch (DbUpdateException ex)
+            {
+                ModelState.AddModelError(string.Empty, $"Save failed: {ex.Message}");
+                await LoadLookupsAsync();
+                return Page();
+            }
         }
 
         private async Task LoadLookupsAsync()
         {
             PatronTypeOptions = new SelectList(
                 await db.PatronTypes.AsNoTracking().OrderBy(x => x.Patron_Type).ToListAsync(),
-                nameof(PatronTypes.Patron_Type_Code), nameof(PatronTypes.Patron_Type),
+                nameof(SFILS.Pages.PatronTypes.Patron_Type_Code),
+                nameof(SFILS.Pages.PatronTypes.Patron_Type),
                 Patron?.Patron_Type_Code);
 
             AgeRangeOptions = new SelectList(
                 await db.AgeRanges.AsNoTracking().OrderBy(x => x.Age_Range).ToListAsync(),
-                nameof(AgeRanges.Age_Range_Code), nameof(AgeRanges.Age_Range),
+                nameof(SFILS.Pages.AgeRanges.Age_Range_Code),
+                nameof(SFILS.Pages.AgeRanges.Age_Range),
                 Patron?.Age_Range_Code);
 
             HomeLibraryOptions = new SelectList(
                 await db.HomeLibraries.AsNoTracking().OrderBy(x => x.Home_Library).ToListAsync(),
-                nameof(HomeLibraries.Home_Library_Code), nameof(HomeLibraries.Home_Library),
+                nameof(SFILS.Pages.HomeLibraries.Home_Library_Code),
+                nameof(SFILS.Pages.HomeLibraries.Home_Library),
                 Patron?.Home_Library_Code);
 
             NotificationPrefOptions = new SelectList(
                 await db.Notification_Pref.AsNoTracking().OrderBy(x => x.Notif_Pref).ToListAsync(),
-                nameof(Notification_Pref.Notif_Pref_Code), nameof(Notification_Pref.Notif_Pref),
+                nameof(SFILS.Pages.Notification_Pref.Notif_Pref_Code),
+                nameof(SFILS.Pages.Notification_Pref.Notif_Pref),
                 Patron?.Notif_Pref_Code);
         }
     }
