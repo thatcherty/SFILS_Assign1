@@ -22,11 +22,11 @@ namespace SFILS.Pages
         [Column("notif_pref_code")]
         public string Notif_Pref_Code { get; set; } = null!;
 
-        [Column("provided_email")]
-        public string Provided_Email { get; set; } = null!;
+        [Column("prov_email")]
+        public bool Provided_Email { get; set; }
 
-        [Column("within_county")]
-        public string Within_County { get; set; } = null!;
+        [Column("in_county")]
+        public bool Within_County { get; set; } 
 
         [Column("year_reg")]
         public string Year_Reg { get; set; } = null!;
@@ -95,7 +95,7 @@ namespace SFILS.Pages
         public ICollection<Patron> Patrons { get; set; } = new List<Patron>();
     }
 
-    [Table("notification_pref")] // ensure table name case matches DB
+    [Table("notification_pref")]
     public class Notification_Pref
     {
         [Key]

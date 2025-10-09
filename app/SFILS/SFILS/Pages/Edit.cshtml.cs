@@ -9,67 +9,58 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SFILS.Pages
 {
-    public class EditModel : PageModel
+    public class EditModel(SFILS_Context db) : PageModel
     {
-        private readonly SFILS.Pages.SFILS_Context _context;
+        [BindProperty] public Patron Patron { get; set; } = null!;
 
-        public EditModel(SFILS.Pages.SFILS_Context context)
+        public SelectList PatronTypeOptions { get; private set; } = null!;
+        public SelectList AgeRangeOptions { get; private set; } = null!;
+        public SelectList HomeLibraryOptions { get; private set; } = null!;
+        public SelectList NotificationPrefOptions { get; private set; } = null!;
+
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            _context = context;
-        }
+            Patron = await db.Patron.FindAsync(id);
+            if (Patron is null) return NotFound();
 
-        [BindProperty]
-        public Patron Patron { get; set; } = default!;
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var patron =  await _context.Patron.FirstOrDefaultAsync(m => m.Patron_Id == id);
-            if (patron == null)
-            {
-                return NotFound();
-            }
-            Patron = patron;
+            await LoadLookupsAsync();
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                await LoadLookupsAsync();
                 return Page();
             }
 
-            _context.Attach(Patron).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PatronExists(Patron.Patron_Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
+            db.Attach(Patron).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+            return RedirectToPage("Index");
         }
 
-        private bool PatronExists(int id)
+        private async Task LoadLookupsAsync()
         {
-            return _context.Patron.Any(e => e.Patron_Id == id);
+            PatronTypeOptions = new SelectList(
+                await db.PatronTypes.AsNoTracking().OrderBy(x => x.Patron_Type).ToListAsync(),
+                nameof(PatronTypes.Patron_Type_Code), nameof(PatronTypes.Patron_Type),
+                Patron?.Patron_Type_Code);
+
+            AgeRangeOptions = new SelectList(
+                await db.AgeRanges.AsNoTracking().OrderBy(x => x.Age_Range).ToListAsync(),
+                nameof(AgeRanges.Age_Range_Code), nameof(AgeRanges.Age_Range),
+                Patron?.Age_Range_Code);
+
+            HomeLibraryOptions = new SelectList(
+                await db.HomeLibraries.AsNoTracking().OrderBy(x => x.Home_Library).ToListAsync(),
+                nameof(HomeLibraries.Home_Library_Code), nameof(HomeLibraries.Home_Library),
+                Patron?.Home_Library_Code);
+
+            NotificationPrefOptions = new SelectList(
+                await db.Notification_Pref.AsNoTracking().OrderBy(x => x.Notif_Pref).ToListAsync(),
+                nameof(Notification_Pref.Notif_Pref_Code), nameof(Notification_Pref.Notif_Pref),
+                Patron?.Notif_Pref_Code);
         }
     }
 }

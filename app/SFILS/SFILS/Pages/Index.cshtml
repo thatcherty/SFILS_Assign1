@@ -1,96 +1,80 @@
 ﻿@page
-@model SFILS.Pages.IndexModel
+@model IndexModel
+<h2>Patrons</h2>
 
-@{
-    ViewData["Title"] = "Index";
-}
+<p><a asp-page="Create" class="btn btn-primary">New Patron</a></p>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Patron_Type_Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Age_Range_Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Home_Library_Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Notif_Pref_Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Provided_Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Within_County)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Year_Reg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Total_Checkouts)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Total_Renewals)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Circ_Active_Mo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patron[0].Circ_Active_Yr)
-            </th>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Age Range</th>
+            <th>Home Library</th>
+            <th>Notify</th>
+            <th>Email</th>
+            <th>County</th>
+            <th>Year Reg</th>
+            <th>Checkouts</th>
+            <th>Renewals</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Patron) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Patron_Type_Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age_Range_Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Home_Library_Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notif_Pref_Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Provided_Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Within_County)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year_Reg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total_Checkouts)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total_Renewals)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Circ_Active_Mo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Circ_Active_Yr)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Patron_Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Patron_Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Patron_Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var r in Model.Rows)
+        {
+            <tr>
+                <td>@r.PatronId</td>
+                <td>@r.PatronType</td>
+                <td>@r.AgeRange</td>
+                <td>@r.HomeLibrary</td>
+                <td>@r.NotifPref</td>
+                <td>@r.ProvidedEmail</td>
+                <td>@r.WithinCounty</td>
+                <td>@r.YearReg</td>
+                <td>@r.TotalCheckouts</td>
+                <td>@r.TotalRenewals</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@r.PatronId">Edit</a> |
+                    <a asp-page="Details" asp-route-id="@r.PatronId">Details</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
+<nav class="mt-3" aria-label="Pagination">
+    <ul class="pagination">
+        <li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+            <a class="page-link"
+               asp-page="./Index"
+               asp-route-pageNumber="@(Model.PageNumber - 1)"
+               asp-route-pageSize="@Model.PageSize">« Prev</a>
+        </li>
+
+        @for (var i = Math.Max(1, Model.PageNumber - 2); i <= Math.Min(Model.TotalPages, Model.PageNumber + 2); i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link"
+                   asp-page="./Index"
+                   asp-route-pageNumber="@i"
+                   asp-route-pageSize="@Model.PageSize">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.PageNumber >= Model.TotalPages ? "disabled" : "")">
+            <a class="page-link"
+               asp-page="./Index"
+               asp-route-pageNumber="@(Model.PageNumber + 1)"
+               asp-route-pageSize="@Model.PageSize">Next »</a>
+        </li>
+    </ul>
+
+    <div class="text-muted small">
+        Page @Model.PageNumber of @Model.TotalPages — showing @Model.Rows.Count of @Model.TotalCount
+        (<a asp-page="./Index" asp-route-pageNumber="1" asp-route-pageSize="25">25</a> |
+        <a asp-page="./Index" asp-route-pageNumber="1" asp-route-pageSize="50">50</a> |
+        <a asp-page="./Index" asp-route-pageNumber="1" asp-route-pageSize="100">100</a> per page)
+    </div>
+</nav>

@@ -8,23 +8,58 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SFILS.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel(SFILS_Context db) : PageModel
     {
-        private readonly SFILS.Pages.SFILS_Context _context;
+        public sealed record Row(
+            int PatronId,
+            string PatronType,
+            string AgeRange,
+            string HomeLibrary,
+            string NotifPref,
+            bool ProvidedEmail,
+            bool WithinCounty,
+            string YearReg,
+            int TotalCheckouts,
+            int TotalRenewals);
 
-        public IndexModel(SFILS.Pages.SFILS_Context context)
+        public IReadOnlyList<Row> Rows { get; private set; } = [];
+
+        // Paging state exposed to the view
+        public int PageNumber { get; private set; }
+        public int PageSize { get; private set; }
+        public int TotalCount { get; private set; }
+        public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);
+
+        public async Task OnGetAsync(int pageNum = 1, int pageSize = 50)
         {
-            _context = context;
-        }
+            PageNumber = Math.Max(1, pageNum);
+            PageSize = Math.Clamp(pageSize, 10, 200); // keep it reasonable
 
-        public IList<Patron> Patron { get;set; } = default!;
+            var baseQuery = db.Patron
+                .AsNoTracking()
+                .Include(p => p.Patron_Type)
+                .Include(p => p.Age_Range)
+                .Include(p => p.Home_Library)
+                .Include(p => p.Notification_Pref);
 
-        public async Task OnGetAsync()
-        {
-            Patron = await _context.Patron.AsNoTracking()
-                                .OrderBy(p => p.Patron_Id)
-                                .Take(50)
-                                .ToListAsync();
+            TotalCount = await baseQuery.CountAsync();
+
+            Rows = await baseQuery
+                .OrderBy(p => p.Patron_Id)
+                .Skip((PageNumber - 1) * PageSize)
+                .Take(PageSize)
+                .Select(p => new Row(
+                    p.Patron_Id,
+                    p.Patron_Type.Patron_Type,
+                    p.Age_Range.Age_Range,
+                    p.Home_Library.Home_Library,
+                    p.Notification_Pref.Notif_Pref,
+                    p.Provided_Email,
+                    p.Within_County,
+                    p.Year_Reg,
+                    p.Total_Checkouts,
+                    p.Total_Renewals))
+                .ToListAsync();
         }
     }
 }
