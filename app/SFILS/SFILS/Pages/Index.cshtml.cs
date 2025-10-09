@@ -24,16 +24,16 @@ namespace SFILS.Pages
 
         public IReadOnlyList<Row> Rows { get; private set; } = [];
 
-        // Paging state exposed to the view
-        public int PageNumber { get; private set; }
-        public int PageSize { get; private set; }
+        [BindProperty(SupportsGet = true)] public int pageNumber { get; set; } = 1;
+        [BindProperty(SupportsGet = true)] public int pageSize { get; set; } = 50;
+
         public int TotalCount { get; private set; }
-        public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);
+        public int TotalPages => TotalCount == 0 ? 1 : (int)Math.Ceiling(TotalCount / (double)pageSize);
 
         public async Task OnGetAsync(int pageNum = 1, int pageSize = 50)
         {
-            PageNumber = Math.Max(1, pageNum);
-            PageSize = Math.Clamp(pageSize, 10, 200); // keep it reasonable
+            pageSize = Math.Clamp(pageSize, 10, 200);
+            pageNumber = Math.Max(1, pageNumber);
 
             var baseQuery = db.Patron
                 .AsNoTracking()
@@ -43,11 +43,12 @@ namespace SFILS.Pages
                 .Include(p => p.Notification_Pref);
 
             TotalCount = await baseQuery.CountAsync();
+            if (pageNumber > TotalPages) pageNumber = TotalPages;
 
             Rows = await baseQuery
                 .OrderBy(p => p.Patron_Id)
-                .Skip((PageNumber - 1) * PageSize)
-                .Take(PageSize)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
                 .Select(p => new Row(
                     p.Patron_Id,
                     p.Patron_Type.Patron_Type,

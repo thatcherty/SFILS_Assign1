@@ -46,35 +46,28 @@
 
 <nav class="mt-3" aria-label="Pagination">
     <ul class="pagination">
-        <li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+        <li class="page-item @(Model.pageNumber <= 1 ? "disabled" : "")">
             <a class="page-link"
                asp-page="./Index"
-               asp-route-pageNumber="@(Model.PageNumber - 1)"
-               asp-route-pageSize="@Model.PageSize">« Prev</a>
+               asp-route-pageNumber="@(Model.pageNumber - 1)"
+               asp-route-pageSize="@Model.pageSize">« Prev</a>
         </li>
 
-        @for (var i = Math.Max(1, Model.PageNumber - 2); i <= Math.Min(Model.TotalPages, Model.PageNumber + 2); i++)
+        @for (var i = Math.Max(1, Model.pageNumber - 2); i <= Math.Min(Model.TotalPages, Model.pageNumber + 2); i++)
         {
-            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+            <li class="page-item @(i == Model.pageNumber ? "active" : "")">
                 <a class="page-link"
                    asp-page="./Index"
                    asp-route-pageNumber="@i"
-                   asp-route-pageSize="@Model.PageSize">@i</a>
+                   asp-route-pageSize="@Model.pageSize">@i</a>
             </li>
         }
 
-        <li class="page-item @(Model.PageNumber >= Model.TotalPages ? "disabled" : "")">
+        <li class="page-item @(Model.pageNumber >= Model.TotalPages ? "disabled" : "")">
             <a class="page-link"
                asp-page="./Index"
-               asp-route-pageNumber="@(Model.PageNumber + 1)"
-               asp-route-pageSize="@Model.PageSize">Next »</a>
+               asp-route-pageNumber="@(Model.pageNumber + 1)"
+               asp-route-pageSize="@Model.pageSize">Next »</a>
         </li>
     </ul>
-
-    <div class="text-muted small">
-        Page @Model.PageNumber of @Model.TotalPages — showing @Model.Rows.Count of @Model.TotalCount
-        (<a asp-page="./Index" asp-route-pageNumber="1" asp-route-pageSize="25">25</a> |
-        <a asp-page="./Index" asp-route-pageNumber="1" asp-route-pageSize="50">50</a> |
-        <a asp-page="./Index" asp-route-pageNumber="1" asp-route-pageSize="100">100</a> per page)
-    </div>
 </nav>
