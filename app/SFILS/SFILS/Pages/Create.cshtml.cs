@@ -29,35 +29,40 @@ namespace SFILS.Pages
             }
 
             db.Patron.Add(Patron);
-            await db.SaveChangesAsync();
-            return RedirectToPage("Index");
+            try
+            {
+                await db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            catch (DbUpdateException ex)
+            {
+                ModelState.AddModelError(string.Empty, $"Create failed: {ex.Message}");
+                await LoadLookupsAsync();
+                return Page();
+            }
         }
 
         private async Task LoadLookupsAsync()
         {
             PatronTypeOptions = new SelectList(
-                await db.PatronTypes.AsNoTracking()
-                    .OrderBy(x => x.Patron_Type).ToListAsync(),
-                nameof(PatronTypes.Patron_Type_Code),
-                nameof(PatronTypes.Patron_Type));
+                await db.PatronTypes.AsNoTracking().OrderBy(x => x.Patron_Type).ToListAsync(),
+                nameof(SFILS.Pages.PatronTypes.Patron_Type_Code),
+                nameof(SFILS.Pages.PatronTypes.Patron_Type));
 
             AgeRangeOptions = new SelectList(
-                await db.AgeRanges.AsNoTracking()
-                    .OrderBy(x => x.Age_Range).ToListAsync(),
-                nameof(AgeRanges.Age_Range_Code),
-                nameof(AgeRanges.Age_Range));
+                await db.AgeRanges.AsNoTracking().OrderBy(x => x.Age_Range).ToListAsync(),
+                nameof(SFILS.Pages.AgeRanges.Age_Range_Code),
+                nameof(SFILS.Pages.AgeRanges.Age_Range));
 
             HomeLibraryOptions = new SelectList(
-                await db.HomeLibraries.AsNoTracking()
-                    .OrderBy(x => x.Home_Library).ToListAsync(),
-                nameof(HomeLibraries.Home_Library_Code),
-                nameof(HomeLibraries.Home_Library));
+                await db.HomeLibraries.AsNoTracking().OrderBy(x => x.Home_Library).ToListAsync(),
+                nameof(SFILS.Pages.HomeLibraries.Home_Library_Code),
+                nameof(SFILS.Pages.HomeLibraries.Home_Library));
 
             NotificationPrefOptions = new SelectList(
-                await db.Notification_Pref.AsNoTracking()
-                    .OrderBy(x => x.Notif_Pref).ToListAsync(),
-                nameof(Notification_Pref.Notif_Pref_Code),
-                nameof(Notification_Pref.Notif_Pref));
+                await db.Notification_Pref.AsNoTracking().OrderBy(x => x.Notif_Pref).ToListAsync(),
+                nameof(SFILS.Pages.Notification_Pref.Notif_Pref_Code),
+                nameof(SFILS.Pages.Notification_Pref.Notif_Pref));
         }
     }
 }
