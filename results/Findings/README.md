@@ -11,7 +11,7 @@ where p.total_renewals > 0;
 # Customers in the county
 ```SQL
 select count(patron_id) as Customers_in_County from patrons as p
-where p.within_county = 1;
+where p.in_county = 1;
 ```
 # Customers who prefer print notifications
 ```SQL
