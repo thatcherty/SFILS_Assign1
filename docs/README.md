@@ -12,7 +12,7 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
       mysql -u root -p -e "CREATE DATABASE sfils_prod CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
      ```
    - ```bash
-     type sfils_full.sql | mysql -u root -p sfils_copy
+     type sfils_full.sql | mysql -u root -p sfils_prod
      ```
  - These commands may take about 1min (no more in my experience) to run
  - Run the [Create New User](https://github.com/thatcherty/SFILS_Assign1/tree/main/scripts/user%20creation) file
