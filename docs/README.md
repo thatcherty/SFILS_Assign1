@@ -8,6 +8,7 @@ First things first, clone the whole repository
    mysql -u root -p -e "CREATE DATABASE sfils_prod CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
    mysql -u root -p sfils_prod < sfils_full.sql
    ```
+ - These commands may take about 1min (no more in my experience) to run
  - Run the [Create New User](https://github.com/thatcherty/SFILS_Assign1/tree/main/scripts/user%20creation) file
    - You can do this by opening mySQL and running the script, or opening mySQL in the command line and running the same commands
   
