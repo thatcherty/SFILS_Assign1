@@ -23,7 +23,7 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - Verify that the database is called sfils_prod, as this is required for the app connection
 
 ## App
- - This app requires Visual Studio to be installed
+ - This app requires Visual Studio and .NET to be installed
  - In the app folder, open SFILS.sln
  - Run the app by selecting https at the top
 ![HTTPS start](https://raw.githubusercontent.com/thatcherty/SFILS_Assign1/main/docs/photos/Start_App_Screenshot.png)
