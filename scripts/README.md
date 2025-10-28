@@ -47,7 +47,7 @@ create table sfils.patron_types (
 ```
 
 ### Age Ranges Table
-I added a primary (numerical) for the age ranges in this table.
+I added a primary key (numerical) column for the age ranges in this table. I noticed that some age ranges were associated with patron types that appear to be mismatched (like a 75-year-old juvenile). Since I do not know exactly the intent of the values, I have left those potential mismatches.
 ```SQL
 create table sfils.age_ranges (
 	age_range_code int NOT NULL AUTO_INCREMENT,
