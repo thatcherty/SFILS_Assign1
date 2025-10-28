@@ -195,7 +195,7 @@ ALTER TABLE sfils.patrons
 DROP COLUMN within_county;
 ```
 
-I considered doing this with the month and year columns, but opted out. This was not impacting the ability to query; however, it would be beneficial to modify when ordering by date.
+I considered changing the month and year columns from strings to ints, but opted out. This was not impacting the ability to query; however, it would be beneficial to modify when ordering by date.
 
 I decided to add a few indexes to the patrons table for values that may be used to commonly search.
 
