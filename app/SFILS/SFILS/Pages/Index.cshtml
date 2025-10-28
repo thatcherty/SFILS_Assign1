@@ -3,8 +3,6 @@
 
 <h2>Patrons</h2>
 
-<a class="btn btn-sm btn-outline-secondary" href="@Url.Page("./Create")">Create</a>
-
 <form method="get" id="filterForm">
     <table class="table table-striped table-sm align-middle">
         <thead>
@@ -100,7 +98,6 @@
                     <td>@r.YearReg</td>
                     <td>@r.TotalCheckouts</td>
                     <td>@r.TotalRenewals</td>
-                    <td><a asp-page="Edit" asp-route-id="@r.PatronId">Edit</a></td>
                     <td><a asp-page="Details" asp-route-id="@r.PatronId">Details</a></td>
                 </tr>
             }
