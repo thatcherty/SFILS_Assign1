@@ -1,5 +1,8 @@
 # How to Build the Project
-First things first, clone the whole repository
+First things first, clone the whole repository with the following command
+```bash
+git clone https://github.com/thatcherty/SFILS_Assign1.git
+```
 
 ## MySQL Database
  - Unzip the [DB Dump](https://github.com/thatcherty/SFILS_Assign1/tree/main/scripts/database%20backup)
