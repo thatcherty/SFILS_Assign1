@@ -11,6 +11,15 @@ After adding an index on Notif Type:
  - [Customers who prefer print notifications](#Customers-who-prefer-print-notifications) provided 0sec query compared to 0.015
  - [Count of patron types by notification preference](#Count-of-patron-types-by-notification-preference) provided between 0.015 - 0.032 sec queries compared to 1.047 sec
 
+## Table View
+| Query | Before | After | Change | Notes |
+|:--|--:|--:|--:|:--|
+| **Count of patron types by age range** | 1.000 | 1.000 | 0% | No improvement; only `patron_type_code` indexed — `age_range_code` not indexed or composite. |
+| **Patron type by age ranges in county** | 0.172 | 0.172 | 0% | No improvement; could improve with composite `(patron_type_code, age_range_code)` or index on `age_range_code`. |
+| **Customers who prefer print notifications** | 0.015 | **0.000** | **−100%** | Major improvement; benefited from index on `notif_pref_code`. |
+| **Count of patron types by notification preference** | 1.047 | **0.032** | **−96.9%** | Major improvement; both `patron_type_code` and  `notif_pref_code` index used. |
+
+
 ## Conclusions
 In both Patron Type queries, the other columns were not indexed; however, in the second Notif Type query, both patron types and notif type were indexed. This may have been the cause of the improvement. For the first notif type query, it is simply getting a count and only looking for notif pref.
 
