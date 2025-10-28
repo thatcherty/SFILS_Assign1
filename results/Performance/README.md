@@ -1,6 +1,6 @@
 # Performance
 Based on the average of the following queries:
- - 159 rows/sec
+ - Queries return 159 rows/sec
 
 ## Adding Indexes
 After adding an index on Patron Type:
