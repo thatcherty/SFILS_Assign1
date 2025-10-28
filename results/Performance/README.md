@@ -2,6 +2,18 @@
 Based on the average of the following queries:
  - 159 rows/sec
 
+## Adding Indexes
+After adding an index on Patron Type:
+ - [Count of patron types by age range](#Count-of-patron-types-by-age-range) performance did not improve
+ - [Patron type by age ranges in county](#Patron-type-by-age-ranges-in-county) performance did not improve
+
+After adding an index on Notif Type:
+ - [Customers who prefer print notifications](#Customers-who-prefer-print-notifications) provided 0sec query compared to 0.015
+ - [Count of patron types by notification preference](#Count-of-patron-types-by-notification-preference) provided between 0.015 - 0.032 sec queries compared to 1.047 sec
+
+## Conclusions
+In both Patron Type queries, the other columns were not indexed; however, in the second Notif Type query, both patron types and notif type were indexed. This may have been the cause of the improvement. For the first notif type query, it is simply getting a count and only looking for notif pref.
+
 # Returning customers
 - Performance: 0.125 sec
 - Rows returned: 1
