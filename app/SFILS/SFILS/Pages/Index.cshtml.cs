@@ -74,8 +74,19 @@ namespace SFILS.Pages
             if (patronId is not null) baseQuery = baseQuery.Where(p => p.Patron_Id == patronId);
             if (checkouts is not null) baseQuery = baseQuery.Where(p => p.Total_Checkouts >= checkouts);
             if (renewals is not null) baseQuery = baseQuery.Where(p => p.Total_Renewals >= renewals);
-            // if (yearMin is not null) baseQuery = baseQuery.Where(p => p.Year_Reg >= yearMin);
-            // if (yearMax is not null) baseQuery = baseQuery.Where(p => p.Year_Reg <= yearMax);
+            if (yearMin is not null || yearMax is not null)
+            {
+                baseQuery = baseQuery.Where(p => p.Year_Reg != null && p.Year_Reg.Trim().Length == 4);
+
+                var minStr = yearMin?.ToString("D4");
+                var maxStr = yearMax?.ToString("D4");
+
+                if (minStr is not null)
+                    baseQuery = baseQuery.Where(p => string.Compare(p.Year_Reg.Trim(), minStr) >= 0);
+
+                if (maxStr is not null)
+                    baseQuery = baseQuery.Where(p => string.Compare(p.Year_Reg.Trim(), maxStr) <= 0);
+            }
 
             TotalCount = await baseQuery.CountAsync();
             if (pageNumber > TotalPages) pageNumber = TotalPages;

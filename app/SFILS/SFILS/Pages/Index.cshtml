@@ -121,8 +121,8 @@
                asp-route-inCounty="@(Model.inCounty?.ToString().ToLower())"
                asp-route-yearMin="@Model.yearMin"
                asp-route-yearMax="@Model.yearMax"
-               asp-route-yearMin="@Model.checkouts"
-               asp-route-yearMax="@Model.renewals"
+               asp-route-checkouts="@Model.checkouts"
+               asp-route-renewals="@Model.renewals"
                asp-route-q="@Model.patronId">« Prev</a>
         </li>
 
@@ -141,8 +141,8 @@
                    asp-route-inCounty="@(Model.inCounty?.ToString().ToLower())"
                    asp-route-yearMin="@Model.yearMin"
                    asp-route-yearMax="@Model.yearMax"
-                   asp-route-yearMin="@Model.checkouts"
-                   asp-route-yearMax="@Model.renewals"
+                   asp-route-checkouts="@Model.checkouts"
+                   asp-route-renewals="@Model.renewals"
                    asp-route-q="@Model.patronId">@i</a>
             </li>
         }
@@ -160,8 +160,8 @@
                asp-route-inCounty="@(Model.inCounty?.ToString().ToLower())"
                asp-route-yearMin="@Model.yearMin"
                asp-route-yearMax="@Model.yearMax"
-               asp-route-yearMin="@Model.checkouts"
-               asp-route-yearMax="@Model.renewals"
+               asp-route-checkouts="@Model.checkouts"
+               asp-route-renewals="@Model.renewals"
                asp-route-q="@Model.patronId">Next »</a>
         </li>
     </ul>
