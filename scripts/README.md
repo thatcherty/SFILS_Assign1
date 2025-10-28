@@ -143,7 +143,7 @@ Inner Join age_ranges as a on m.age_range = a.age_range
 
 ## Clean Tables
 ### Home Library
-There were some empty values in the home libraries column in the master table. I replaced them with 0's initially.
+There were some empty values in the home library code column in the master table. I replaced them with 0's initially.
 ```SQL
 -- perform update
 update sfils.master
@@ -156,7 +156,7 @@ from sfils.master
 where home_library_code = '' or home_library_code is null
 ```
 
-Once I inserted all the values into their destination tables, I changed the 0 to Unknown.
+Once I inserted all the values into their destination tables, I changed the home library associated with 0 to Unknown.
 
 ```SQL
 insert into sfils.home_libraries
