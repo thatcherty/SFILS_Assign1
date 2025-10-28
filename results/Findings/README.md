@@ -72,7 +72,7 @@ group by pa.patron_type
 order by Print_Pref_Count desc;
 ```
 # Count of patron types by notification preference
-- Findings: 
+- Findings: Email is a highly popular preference: Adults, Juveniles, Teens, and Seniors use this most.
 ```SQL
 select 
 	pa.patron_type as Patron_Type, 
@@ -85,6 +85,8 @@ group by pa.patron_type, n.notif_pref
 order by Notification_Type_Pref desc;
 ```
 # Count of patron types by age range
+ - Findings: The most common type of patron is an Adult between 25 to 34 years with 86157 records.
+ - Note: Some age ranges appear to be matched with the wrong patron type. It's possible one got updated but not the other, or it could have been a mistake in data entry. I have decided to leave it as is, since the intention of the columns is not entirely clear.
 ```SQL
 select 
 	pa.patron_type as Patron_Type, 
@@ -97,6 +99,7 @@ group by pa.patron_type, a.age_range
 order by Age_Range_Count desc;
 ```
 # Patron type by age ranges in county
+ - Findings: Only slightly, there are more adults 35 to 44 years than 25 to 34 years in the county at 12674.
 ```SQL
 select 
 	pa.patron_type as Patron_Type, 
