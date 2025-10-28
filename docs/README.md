@@ -23,10 +23,13 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - Verify that the database is called sfils_prod, as this is required for the app connection
 
 ## App
- - This app requires Visual Studio and .NET to be installed
+ - This app requires Visual Studio and .NET SDK 8.0 or later
  - In the app folder, open SFILS.sln
  - Run the app by selecting https at the top
 ![HTTPS start](https://raw.githubusercontent.com/thatcherty/SFILS_Assign1/main/docs/photos/Start_App_Screenshot.png)
  - This should automatically open a webpage at https://localhost:7297/
    - If not, just click the link above, and it should take you there
 
+> Note: If you do not have Visual Studio but do have .NET SDK 8.0, you can navigate to the project directory [here](https://github.com/thatcherty/SFILS_Assign1/tree/main/app/SFILS/SFILS)
+> In a command line run `dotnet run`
+> You will need to find the exact port in the CLI output, for me it was http://localhost:5078/
