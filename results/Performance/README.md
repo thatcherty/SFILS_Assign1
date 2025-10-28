@@ -1,3 +1,7 @@
+# Performance
+Based on the average of the following queries:
+ - 159 rows/sec
+
 # Returning customers
 - Performance: 0.125 sec
 - Rows returned: 1
