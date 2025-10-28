@@ -9,44 +9,56 @@ namespace SFILS.Pages
     {
         [Key]
         [Column("patron_id")]
+        [Display(Name = "ID")]
         public int Patron_Id { get; set; }
 
         [Column("patron_type_code")]
+        [Display(Name = "Patron Type Code")]
         public int Patron_Type_Code { get; set; }
 
         [Column("age_range_code")]
+        [Display(Name = "Age Range Code")]
         public int Age_Range_Code { get; set; }
 
         [Column("home_library_code")]
+        [Display(Name = "Home Library Code")]
         public string Home_Library_Code { get; set; } = null!;
 
         [Column("notif_pref_code")]
+        [Display(Name = "Notification Pref Code")]
         public string Notif_Pref_Code { get; set; } = null!;
 
         [Column("prov_email")]
+        [Display(Name = "Provided Email")]
         public bool Provided_Email { get; set; }
 
         [Column("in_county")]
+        [Display(Name = "Within County")]
         public bool Within_County { get; set; } 
 
         [Column("year_reg")]
+        [Display(Name = "Year Registered")]
         public string Year_Reg { get; set; } = null!;
 
         [Column("total_checkouts")]
+        [Display(Name = "Total Checkouts")]
         public int Total_Checkouts { get; set; }
 
         [Column("total_renewals")]
+        [Display(Name = "Total Renewals")]
         public int Total_Renewals { get; set; }
 
         [Column("circ_active_mo")]
+        [Display(Name = "Circulation Active Month")]
         public string? Circ_Active_Mo { get; set; }
 
         [Column("circ_active_yr")]
+        [Display(Name = "Circulation Active Year")]
         public string? Circ_Active_Yr { get; set; }
 
-        // --- Navigation properties (not posted by the form) ---
+        
         [ForeignKey(nameof(Patron_Type_Code))]
-        [ValidateNever]                      // <- prevent validation errors
+        [ValidateNever]                      
         public PatronTypes? Patron_Type { get; set; }
 
         [ForeignKey(nameof(Age_Range_Code))]
