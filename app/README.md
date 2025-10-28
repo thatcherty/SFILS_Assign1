@@ -3,7 +3,7 @@
  - You can view individual records by selecting Details on the right side
  - You can apply various filters by using the selections below each column header
  - You can advance through pages of records to view the next records in the result of your search filters
- - The app does not support editing or creating new records since this was expressed as unnecessary in class
+ - I removed the options for editing or creating new records since this was expressed as unnecessary in class
 
 Once the app loads, you should see something similar to the below:
 
