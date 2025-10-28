@@ -24,14 +24,17 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - Verify a user has been created called sfils_reader with password ReadOnlyPass! that includes select access to the DB
 
 ## App
- - This app requires Visual Studio and .NET SDK 8.0 or later
+ - This app requires Visual Studio and .NET SDK 9.0 or later
+   - With most things, it's possible it can work with an earlier version, but to be safe, 9 is recommended
+   - You can check your .NET version in the CLI with `dotnet --version`
+   - [Here](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) is a link to Microsoft .NET SDK 9 downloads
  - In the app folder, open SFILS.sln
  - Run the app by selecting https at the top
 ![HTTPS start](https://raw.githubusercontent.com/thatcherty/SFILS_Assign1/main/docs/photos/Start_App_Screenshot.png)
  - This should automatically open a webpage at https://localhost:7297/
    - If not, click the link above, and it should take you there
 
-> Note: If you do not have Visual Studio but do have .NET SDK 8.0, you can navigate to the project directory [here](https://github.com/thatcherty/SFILS_Assign1/tree/main/app/SFILS/SFILS).
+> Note: If you do not have Visual Studio but do have .NET SDK 9.0, you can navigate to the project directory [located here](https://github.com/thatcherty/SFILS_Assign1/tree/main/app/SFILS/SFILS) on your local file explorer.
 > 
 > In a command line, enter `dotnet run`
 >
