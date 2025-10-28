@@ -16,11 +16,11 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
      ```
  - These commands may take about 1min (no more in my experience) to run
  - Run the [Create New User](https://github.com/thatcherty/SFILS_Assign1/tree/main/scripts/user%20creation) file
-   - You can do this by opening mySQL and running the script, or opening mySQL in the command line and running the same commands
+   - You can do this by opening MySQL and running the script, or opening MySQL in the command line and running the same commands
   
 ### Some Checks 
- - Verify that mySQL is running on port 3306 as this is required for the app connection
- - Verify that the database is called sfils_prod as this is required for the app connection
+ - Verify that MySQL is running on port 3306, as this is required for the app connection
+ - Verify that the database is called sfils_prod, as this is required for the app connection
 
 ## App
  - This app requires Visual Studio to be installed
@@ -28,5 +28,5 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - Run the app by selecting https at the top
 ![HTTPS start](https://raw.githubusercontent.com/thatcherty/SFILS_Assign1/main/docs/photos/Start_App_Screenshot.png)
  - This should automatically open a webpage at https://localhost:7297/
-   - If not, just click the link above and it should take you there
+   - If not, just click the link above, and it should take you there
 
