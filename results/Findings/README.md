@@ -86,7 +86,7 @@ order by Notification_Type_Pref desc;
 ```
 # Count of patron types by age range
  - Findings: The most common type of patron is an Adult between 25 to 34 years with 86157 records.
- - Note: Some age ranges appear to be matched with the wrong patron type. It's possible one got updated but not the other, or it could have been a mistake in data entry. I have decided to leave it as is, since the intention of the columns is not entirely clear.
+ - Note: Some age ranges appear to be matched with the wrong patron type. It's possible one got updated but not the other, or it could have been a mistake in data entry. 
 ```SQL
 select 
 	pa.patron_type as Patron_Type, 
