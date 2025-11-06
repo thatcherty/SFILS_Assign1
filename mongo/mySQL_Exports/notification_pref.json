@@ -1,0 +1,4 @@
+[{"notif_pref_code":"-", "notif_pref":"None"},
+ {"notif_pref_code":"a", "notif_pref":"Print"},
+ {"notif_pref_code":"p", "notif_pref":"Phone"},
+ {"notif_pref_code":"z", "notif_pref":"Email"}]
