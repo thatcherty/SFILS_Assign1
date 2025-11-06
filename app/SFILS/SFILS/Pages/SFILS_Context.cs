@@ -39,7 +39,7 @@ namespace SFILS.Pages
 
             b.Entity<Notification_Pref>(e =>
             {
-                e.ToTable("notification_pref"); // ensure this matches the actual table name
+                e.ToTable("notification_pref");
                 e.HasKey(x => x.Notif_Pref_Code);
                 e.Property(x => x.Notif_Pref_Code).HasColumnName("notif_pref_code").HasMaxLength(64);
                 e.Property(x => x.Notif_Pref).HasColumnName("notif_pref");
@@ -57,7 +57,7 @@ namespace SFILS.Pages
                 e.Property(x => x.Home_Library_Code).HasColumnName("home_library_code");
                 e.Property(x => x.Notif_Pref_Code).HasColumnName("notif_pref_code");
 
-                // keep as strings per your model; mark optional if DB allows NULLs
+                
                 e.Property(x => x.Provided_Email).HasColumnName("prov_email");
                 e.Property(x => x.Within_County).HasColumnName("in_county");
 
