@@ -1,46 +1,48 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SFILS.Pages;
+using MongoDB.EntityFrameworkCore.Extensions;
 
 namespace SFILS.Pages
 {
-    public class SFILS_Context : DbContext
+    public class Mongo_Context : DbContext
     {
-        public SFILS_Context(DbContextOptions<SFILS_Context> options) : base(options)
-        {
-        }
-
+        public Mongo_Context(DbContextOptions<Mongo_Context> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder b)
         {
-            // ---------- Lookup tables ----------
+            base.OnModelCreating(b);
+
             b.Entity<PatronTypes>(e =>
             {
-                e.ToTable("patron_types");
-                e.HasKey(x => x.Patron_Type_Code);
+                e.ToCollection("patron_types");
+                e.HasKey(x => x._id);
+                e.Property(x => x._id).HasColumnName("_id");
                 e.Property(x => x.Patron_Type_Code).HasColumnName("patron_type_code");
                 e.Property(x => x.Patron_Type).HasColumnName("patron_type");
             });
 
             b.Entity<AgeRanges>(e =>
             {
-                e.ToTable("age_ranges");
-                e.HasKey(x => x.Age_Range_Code);
+                e.ToCollection("age_ranges");
+                e.HasKey(x => x._id);
+                e.Property(x => x._id).HasColumnName("_id");
                 e.Property(x => x.Age_Range_Code).HasColumnName("age_range_code");
                 e.Property(x => x.Age_Range).HasColumnName("age_range");
             });
 
             b.Entity<HomeLibraries>(e =>
             {
-                e.ToTable("home_libraries");
-                e.HasKey(x => x.Home_Library_Code);
+                e.ToCollection("home_libraries");
+                e.HasKey(x => x._id);
+                e.Property(x => x._id).HasColumnName("_id");
                 e.Property(x => x.Home_Library_Code).HasColumnName("home_library_code").HasMaxLength(64);
                 e.Property(x => x.Home_Library).HasColumnName("home_library");
             });
 
             b.Entity<Notification_Pref>(e =>
             {
-                e.ToTable("notification_pref");
-                e.HasKey(x => x.Notif_Pref_Code);
+                e.ToCollection("notification_pref");
+                e.HasKey(x => x._id);
+                e.Property(x => x._id).HasColumnName("_id");
                 e.Property(x => x.Notif_Pref_Code).HasColumnName("notif_pref_code").HasMaxLength(64);
                 e.Property(x => x.Notif_Pref).HasColumnName("notif_pref");
             });
@@ -48,8 +50,9 @@ namespace SFILS.Pages
             // ---------- Patrons ----------
             b.Entity<Patron>(e =>
             {
-                e.ToTable("patrons");
-                e.HasKey(x => x.Patron_Id);
+                e.ToCollection("patrons");
+                e.HasKey(x => x._id);
+                e.Property(x => x._id).HasColumnName("_id");
                 e.Property(x => x.Patron_Id).HasColumnName("patron_id");
 
                 e.Property(x => x.Patron_Type_Code).HasColumnName("patron_type_code");
@@ -57,7 +60,7 @@ namespace SFILS.Pages
                 e.Property(x => x.Home_Library_Code).HasColumnName("home_library_code");
                 e.Property(x => x.Notif_Pref_Code).HasColumnName("notif_pref_code");
 
-                
+
                 e.Property(x => x.Provided_Email).HasColumnName("prov_email");
                 e.Property(x => x.Within_County).HasColumnName("in_county");
 
@@ -100,4 +103,3 @@ namespace SFILS.Pages
         public DbSet<Notification_Pref> Notification_Pref { get; set; } = null!;
     }
 }
- 

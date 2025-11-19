@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,6 +10,10 @@ namespace SFILS.Pages
     public class Patron
     {
         [Key]
+        [BsonId]
+        public ObjectId _id { get; set; }
+
+        
         [Column("patron_id")]
         [Display(Name = "ID")]
         public int Patron_Id { get; set; }
@@ -30,11 +36,11 @@ namespace SFILS.Pages
 
         [Column("prov_email")]
         [Display(Name = "Provided Email")]
-        public bool Provided_Email { get; set; }
+        public int Provided_Email { get; set; }
 
         [Column("in_county")]
         [Display(Name = "Within County")]
-        public bool Within_County { get; set; } 
+        public int Within_County { get; set; } 
 
         [Column("year_reg")]
         [Display(Name = "Year Registered")]
@@ -79,6 +85,9 @@ namespace SFILS.Pages
     public class PatronTypes
     {
         [Key]
+        [BsonId]
+        public ObjectId _id { get; set; }
+
         [Column("patron_type_code")]
         public int Patron_Type_Code { get; set; }
 
@@ -92,6 +101,9 @@ namespace SFILS.Pages
     public class AgeRanges
     {
         [Key]
+        [BsonId]
+        public ObjectId _id { get; set; }
+
         [Column("age_range_code")]
         public int Age_Range_Code { get; set; }
 
@@ -105,6 +117,9 @@ namespace SFILS.Pages
     public class HomeLibraries
     {
         [Key]
+        [BsonId]
+        public ObjectId _id { get; set; }
+
         [Column("home_library_code")]
         public string Home_Library_Code { get; set; } = null!;
 
@@ -118,6 +133,9 @@ namespace SFILS.Pages
     public class Notification_Pref
     {
         [Key]
+        [BsonId]
+        public ObjectId _id { get; set; }
+
         [Column("notif_pref_code")]
         public string Notif_Pref_Code { get; set; } = null!;
 

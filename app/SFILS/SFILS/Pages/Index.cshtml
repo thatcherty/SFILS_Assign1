@@ -1,0 +1,272 @@
+﻿@page
+@model SFILS.Pages.IndexModel
+@{
+    ViewData["Title"] = "Patrons";
+}
+
+<h1 class="mb-3">Patrons</h1>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    @* Page size + sort (preserves filters) *@
+    <form method="get" class="d-inline" id="sizeSortForm">
+
+        @* Preserve all filters *@
+        <input type="hidden" name="PatronIdFilter" value="@Model.PatronIdFilter" />
+        <input type="hidden" name="ProvidedFilter" value="@Model.ProvidedFilter" />
+        <input type="hidden" name="TypeCodeFilter" value="@Model.TypeCodeFilter" />
+        <input type="hidden" name="AgeCodeFilter" value="@Model.AgeCodeFilter" />
+        <input type="hidden" name="LibraryCodeFilter" value="@Model.LibraryCodeFilter" />
+        <input type="hidden" name="NotifCodeFilter" value="@Model.NotifCodeFilter" />
+        <input type="hidden" name="WithinCountyFilter" value="@Model.WithinCountyFilter" />
+        <input type="hidden" name="YearRegFilter" value="@Model.YearRegFilter" />
+        <input type="hidden" name="TotalCheckoutsFilter" value="@Model.TotalCheckoutsFilter" />
+        <input type="hidden" name="TotalRenewalsFilter" value="@Model.TotalRenewalsFilter" />
+        <input type="hidden" name="CircActiveMoFilter" value="@Model.CircActiveMoFilter" />
+        <input type="hidden" name="CircActiveYrFilter" value="@Model.CircActiveYrFilter" />
+    </form>
+</div>
+
+@* A single external form to collect all header inputs *@
+<form id="filtersForm" method="get">
+    <input type="hidden" name="pageIndex" value="1" />
+    <input type="hidden" name="pageSize" value="@Model.pageSize" />
+    <input type="hidden" name="sort" value="@Model.sort" />
+</form>
+
+@if (Model.Patron is { Count: > 0 })
+{
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th>Patron ID</th>
+                <th>Provided</th>
+
+                <th>Patron Type</th>
+                <th>Age Range</th>
+                <th>Home Library</th>
+                <th>Notification Pref</th>
+
+                <th>Within County</th>
+                <th>Year Registered</th>
+                <th>Total Checkouts</th>
+                <th>Total Renewals</th>
+                <th>Circulation Active Month</th>
+                <th>Circulation Active Year</th>
+
+                <th></th>
+            </tr>
+
+            
+            <tr>
+                <th>
+                    <input form="filtersForm" type="text" name="PatronIdFilter" value="@Model.PatronIdFilter"
+                           class="form-control form-control-sm" placeholder="ID" />
+                </th>
+                <th>
+                    <select form="filtersForm" name="ProvidedFilter" class="form-select form-select-sm">
+                        <option value="" selected="@string.IsNullOrEmpty(Model.ProvidedFilter)">All</option>
+                        <option value="yes" selected="@(Model.ProvidedFilter?.ToLower() == "yes")">Yes</option>
+                        <option value="no" selected="@(Model.ProvidedFilter?.ToLower() == "no")">No</option>
+                    </select>
+                </th>
+                <th>
+                    <select form="filtersForm" name="TypeCodeFilter" class="form-select form-select-sm">
+                        <option value="">All</option>
+                        @foreach (var opt in Model.TypeOptions)
+                        {
+                            <option value="@opt.Code" selected="@(Model.TypeCodeFilter == opt.Code)">@opt.Name</option>
+                        }
+                    </select>
+                </th>
+                <th>
+                    <select form="filtersForm" name="AgeCodeFilter" class="form-select form-select-sm">
+                        <option value="">All</option>
+                        @foreach (var opt in Model.AgeOptions)
+                        {
+                            <option value="@opt.Code" selected="@(Model.AgeCodeFilter == opt.Code)">@opt.Name</option>
+                        }
+                    </select>
+                </th>
+                <th>
+                    <select form="filtersForm" name="LibraryCodeFilter" class="form-select form-select-sm">
+                        <option value="">All</option>
+                        @foreach (var opt in Model.LibraryOptions)
+                        {
+                            <option value="@opt.Code" selected="@(Model.LibraryCodeFilter == opt.Code)">@opt.Name</option>
+                        }
+                    </select>
+                </th>
+                <th>
+                    <select form="filtersForm" name="NotifCodeFilter" class="form-select form-select-sm">
+                        <option value="">All</option>
+                        @foreach (var opt in Model.NotifOptions)
+                        {
+                            <option value="@opt.Code" selected="@(Model.NotifCodeFilter == opt.Code)">@opt.Name</option>
+                        }
+                    </select>
+                </th>
+
+                <th>
+                    <select form="filtersForm" name="WithinCountyFilter" class="form-select form-select-sm">
+                        <option value="" selected="@string.IsNullOrEmpty(Model.WithinCountyFilter)">All</option>
+                        <option value="yes" selected="@(Model.WithinCountyFilter?.ToLower() == "yes")">Yes</option>
+                        <option value="no" selected="@(Model.WithinCountyFilter?.ToLower() == "no")">No</option>
+                    </select>
+                </th>
+                <th>
+                    <input form="filtersForm" type="text" name="YearRegFilter" value="@Model.YearRegFilter"
+                           class="form-control form-control-sm" placeholder="Year" />
+                </th>
+                <th>
+                    <input form="filtersForm" type="number" name="TotalCheckoutsFilter" value="@Model.TotalCheckoutsFilter"
+                           class="form-control form-control-sm" placeholder="≥ ..." />
+                </th>
+                <th>
+                    <input form="filtersForm" type="number" name="TotalRenewalsFilter" value="@Model.TotalRenewalsFilter"
+                           class="form-control form-control-sm" placeholder="≥ ..." />
+                </th>
+                <th>
+                    <input form="filtersForm" type="text" name="CircActiveMoFilter" value="@Model.CircActiveMoFilter"
+                           class="form-control form-control-sm" placeholder="Month" />
+                </th>
+                <th>
+                    <input form="filtersForm" type="text" name="CircActiveYrFilter" value="@Model.CircActiveYrFilter"
+                           class="form-control form-control-sm" placeholder="Year" />
+                </th>
+
+                <th class="text-nowrap">
+                    <div class="btn-group btn-group-sm">
+                        <button form="filtersForm" type="submit" class="btn btn-primary">Apply</button>
+                        <a class="btn btn-outline-secondary" asp-page="./Index">Clear</a>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Patron)
+            {
+                <tr>
+                    <td>@item.Patron_Id</td>
+                    <td>
+                        @if (item.Provided_Email == 1)
+                        {
+                            <span>Yes</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+                    </td>
+
+                    <td>@item.Patron_Type?.Patron_Type</td>
+                    <td>@item.Age_Range?.Age_Range</td>
+                    <td>@item.Home_Library?.Home_Library</td>
+                    <td>@item.Notification_Pref?.Notif_Pref</td>
+
+                    <td>
+                        @if (item.Within_County == 1)
+                        {
+                            <span>Yes</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+                    </td>
+                    <td>@item.Year_Reg</td>
+                    <td>@item.Total_Checkouts</td>
+                    <td>@item.Total_Renewals</td>
+                    <td>@item.Circ_Active_Mo</td>
+                    <td>@item.Circ_Active_Yr</td>
+
+                    <td class="text-nowrap">
+                        <a asp-page="./Details" asp-route-id="@item._id.ToString()">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item @(Model.pageIndex <= 1 ? "disabled" : "")">
+                <a class="page-link"
+                   asp-page="./Index"
+                   asp-route-pageIndex="@(Model.pageIndex - 1)"
+                   asp-route-pageSize="@Model.pageSize"
+                   asp-route-sort="@Model.sort"
+                   asp-route-PatronIdFilter="@Model.PatronIdFilter"
+                   asp-route-ProvidedFilter="@Model.ProvidedFilter"
+                   asp-route-TypeCodeFilter="@Model.TypeCodeFilter"
+                   asp-route-AgeCodeFilter="@Model.AgeCodeFilter"
+                   asp-route-LibraryCodeFilter="@Model.LibraryCodeFilter"
+                   asp-route-NotifCodeFilter="@Model.NotifCodeFilter"
+                   asp-route-WithinCountyFilter="@Model.WithinCountyFilter"
+                   asp-route-YearRegFilter="@Model.YearRegFilter"
+                   asp-route-TotalCheckoutsFilter="@Model.TotalCheckoutsFilter"
+                   asp-route-TotalRenewalsFilter="@Model.TotalRenewalsFilter"
+                   asp-route-CircActiveMoFilter="@Model.CircActiveMoFilter"
+                   asp-route-CircActiveYrFilter="@Model.CircActiveYrFilter">Previous</a>
+            </li>
+
+            @{
+                var start = Math.Max(1, Model.pageIndex - 2);
+                var end = Math.Min(Model.TotalPages, Model.pageIndex + 2);
+                for (var i = start; i <= end; i++)
+                {
+                    <li class="page-item @(i == Model.pageIndex ? "active" : "")">
+                        <a class="page-link"
+                           asp-page="./Index"
+                           asp-route-pageIndex="@i"
+                           asp-route-pageSize="@Model.pageSize"
+                           asp-route-sort="@Model.sort"
+                           asp-route-PatronIdFilter="@Model.PatronIdFilter"
+                           asp-route-ProvidedFilter="@Model.ProvidedFilter"
+                           asp-route-TypeCodeFilter="@Model.TypeCodeFilter"
+                           asp-route-AgeCodeFilter="@Model.AgeCodeFilter"
+                           asp-route-LibraryCodeFilter="@Model.LibraryCodeFilter"
+                           asp-route-NotifCodeFilter="@Model.NotifCodeFilter"
+                           asp-route-WithinCountyFilter="@Model.WithinCountyFilter"
+                           asp-route-YearRegFilter="@Model.YearRegFilter"
+                           asp-route-TotalCheckoutsFilter="@Model.TotalCheckoutsFilter"
+                           asp-route-TotalRenewalsFilter="@Model.TotalRenewalsFilter"
+                           asp-route-CircActiveMoFilter="@Model.CircActiveMoFilter"
+                           asp-route-CircActiveYrFilter="@Model.CircActiveYrFilter">@i</a>
+                    </li>
+                    ;
+                }
+            }
+
+            <li class="page-item @(Model.pageIndex >= Model.TotalPages ? "disabled" : "")">
+                <a class="page-link"
+                   asp-page="./Index"
+                   asp-route-pageIndex="@(Model.pageIndex + 1)"
+                   asp-route-pageSize="@Model.pageSize"
+                   asp-route-sort="@Model.sort"
+                   asp-route-PatronIdFilter="@Model.PatronIdFilter"
+                   asp-route-ProvidedFilter="@Model.ProvidedFilter"
+                   asp-route-TypeCodeFilter="@Model.TypeCodeFilter"
+                   asp-route-AgeCodeFilter="@Model.AgeCodeFilter"
+                   asp-route-LibraryCodeFilter="@Model.LibraryCodeFilter"
+                   asp-route-NotifCodeFilter="@Model.NotifCodeFilter"
+                   asp-route-WithinCountyFilter="@Model.WithinCountyFilter"
+                   asp-route-YearRegFilter="@Model.YearRegFilter"
+                   asp-route-TotalCheckoutsFilter="@Model.TotalCheckoutsFilter"
+                   asp-route-TotalRenewalsFilter="@Model.TotalRenewalsFilter"
+                   asp-route-CircActiveMoFilter="@Model.CircActiveMoFilter"
+                   asp-route-CircActiveYrFilter="@Model.CircActiveYrFilter">Next</a>
+            </li>
+        </ul>
+    </nav>
+}
+else
+{
+    <div class="alert alert-info">No patrons found.</div>
+    <th class="text-nowrap">
+        <div class="btn-group btn-group-sm">
+            <a class="btn btn-outline-secondary" asp-page="./Index">Return</a>
+        </div>
+    </th>
+}

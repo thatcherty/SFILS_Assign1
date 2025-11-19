@@ -1,14 +1,18 @@
 using SFILS.Pages;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using MongoDB.EntityFrameworkCore.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var cs = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<SFILS_Context>(options =>
-            options.UseMySql(cs, ServerVersion.AutoDetect(cs)));
+var mongo = builder.Configuration.GetConnectionString("MongoDB");
+builder.Services.AddDbContext<Mongo_Context>(options =>
+            options.UseMongoDB(mongo, "sfils"));
 
 var app = builder.Build();
 
