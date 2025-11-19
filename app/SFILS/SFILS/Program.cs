@@ -1,7 +1,5 @@
 using SFILS.Pages;
 using Microsoft.EntityFrameworkCore;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using MongoDB.EntityFrameworkCore.Extensions;
 
@@ -11,8 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 var mongo = builder.Configuration.GetConnectionString("MongoDB");
+
 builder.Services.AddDbContext<Mongo_Context>(options =>
-            options.UseMongoDB(mongo, "sfils"));
+    options.UseMongoDB(mongo, "sfils"));
+
+
+builder.Services.AddSingleton<IMongoClient>(_ =>
+    new MongoClient(mongo));
+
+builder.Services.AddScoped<IMongoDatabase>(sp =>
+{
+    var client = sp.GetRequiredService<IMongoClient>();
+    return client.GetDatabase("sfils"); 
+});
 
 var app = builder.Build();
 
@@ -20,7 +29,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

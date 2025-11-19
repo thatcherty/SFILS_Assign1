@@ -165,3 +165,738 @@ db.runCommand( { collMod: "patron_types",
 } );
 ```
 
+# Add Data
+## Age Range Data
+
+```
+db.age_ranges.insertMany(
+[{
+  "_id": {
+    "$oid": "690c3f15e674102d877261df"
+  },
+  "age_range_code": 1,
+  "age_range": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e0"
+  },
+  "age_range_code": 2,
+  "age_range": "0 to 9 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e1"
+  },
+  "age_range_code": 3,
+  "age_range": "10 to 19 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e2"
+  },
+  "age_range_code": 4,
+  "age_range": "20 to 24 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e3"
+  },
+  "age_range_code": 5,
+  "age_range": "25 to 34 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e4"
+  },
+  "age_range_code": 6,
+  "age_range": "35 to 44 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e5"
+  },
+  "age_range_code": 7,
+  "age_range": "45 to 54 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e6"
+  },
+  "age_range_code": 8,
+  "age_range": "55 to 59 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e7"
+  },
+  "age_range_code": 9,
+  "age_range": "60 to 64 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e8"
+  },
+  "age_range_code": 10,
+  "age_range": "65 to 74 years"
+},
+{
+  "_id": {
+    "$oid": "690c3f15e674102d877261e9"
+  },
+  "age_range_code": 11,
+  "age_range": "75 years and over"
+}]
+)
+```
+
+## Home Libraries Data
+```
+db.home_libraries.insertMany(
+[{
+  "_id": {
+    "$oid": "690c3f22e674102d877261eb"
+  },
+  "home_library_code": "0",
+  "home_library": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ec"
+  },
+  "home_library_code": "a5",
+  "home_library": "Anza"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ed"
+  },
+  "home_library_code": "b2",
+  "home_library": "Bayview"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ee"
+  },
+  "home_library_code": "b4",
+  "home_library": "Bernal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ef"
+  },
+  "home_library_code": "b4aaa",
+  "home_library": "Bernal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f0"
+  },
+  "home_library_code": "c2",
+  "home_library": "Chinatown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f1"
+  },
+  "home_library_code": "e7",
+  "home_library": "Eureka Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f2"
+  },
+  "home_library_code": "e9",
+  "home_library": "Excelsior"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f3"
+  },
+  "home_library_code": "e9aaa",
+  "home_library": "Excelsior"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f4"
+  },
+  "home_library_code": "g4",
+  "home_library": "Glen Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f5"
+  },
+  "home_library_code": "g4aaa",
+  "home_library": "Glen Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f6"
+  },
+  "home_library_code": "g6",
+  "home_library": "Golden Gate"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f7"
+  },
+  "home_library_code": "i5",
+  "home_library": "Ingleside"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f8"
+  },
+  "home_library_code": "m2",
+  "home_library": "Marina"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f9"
+  },
+  "home_library_code": "m4",
+  "home_library": "Merced"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fa"
+  },
+  "home_library_code": "m4aaa",
+  "home_library": "Merced"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fb"
+  },
+  "home_library_code": "m6",
+  "home_library": "Mission"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fc"
+  },
+  "home_library_code": "m8",
+  "home_library": "Mission Bay"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fd"
+  },
+  "home_library_code": "m8aaa",
+  "home_library": "Mission Bay"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fe"
+  },
+  "home_library_code": "n4",
+  "home_library": "Noe Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ff"
+  },
+  "home_library_code": "n6",
+  "home_library": "North Beach"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726200"
+  },
+  "home_library_code": "n6aaa",
+  "home_library": "North Beach"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726201"
+  },
+  "home_library_code": "none",
+  "home_library": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726202"
+  },
+  "home_library_code": "o2",
+  "home_library": "Ocean View"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726203"
+  },
+  "home_library_code": "o2aaa",
+  "home_library": "Ocean View"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726204"
+  },
+  "home_library_code": "o7",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726205"
+  },
+  "home_library_code": "o7aaa",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726206"
+  },
+  "home_library_code": "o7zaa",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726207"
+  },
+  "home_library_code": "o7zja",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726208"
+  },
+  "home_library_code": "p1",
+  "home_library": "Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726209"
+  },
+  "home_library_code": "p1aaa",
+  "home_library": "Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620a"
+  },
+  "home_library_code": "p3",
+  "home_library": "Parkside"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620b"
+  },
+  "home_library_code": "p3aaa",
+  "home_library": "Parkside"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620c"
+  },
+  "home_library_code": "p5",
+  "home_library": "Portola"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620d"
+  },
+  "home_library_code": "p5aaa",
+  "home_library": "Portola"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620e"
+  },
+  "home_library_code": "p5taa",
+  "home_library": "Portola"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620f"
+  },
+  "home_library_code": "p7",
+  "home_library": "Potrero"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726210"
+  },
+  "home_library_code": "p7aaa",
+  "home_library": "Potrero"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726211"
+  },
+  "home_library_code": "p9",
+  "home_library": "Presidio"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726212"
+  },
+  "home_library_code": "r3",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726213"
+  },
+  "home_library_code": "r3aaa",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726214"
+  },
+  "home_library_code": "r3j",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726215"
+  },
+  "home_library_code": "r3jaa",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726216"
+  },
+  "home_library_code": "s7",
+  "home_library": "Sunset"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726217"
+  },
+  "home_library_code": "s7aaa",
+  "home_library": "Sunset"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726218"
+  },
+  "home_library_code": "s7j",
+  "home_library": "Sunset"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726219"
+  },
+  "home_library_code": "v3",
+  "home_library": "Visitacion Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621a"
+  },
+  "home_library_code": "v3ala",
+  "home_library": "Visitacion Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621b"
+  },
+  "home_library_code": "v3awk",
+  "home_library": "Visitacion Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621c"
+  },
+  "home_library_code": "w2",
+  "home_library": "West Portal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621d"
+  },
+  "home_library_code": "w2aaa",
+  "home_library": "West Portal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621e"
+  },
+  "home_library_code": "w4",
+  "home_library": "Western Addition"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621f"
+  },
+  "home_library_code": "w4aaa",
+  "home_library": "Western Addition"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726220"
+  },
+  "home_library_code": "x",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726221"
+  },
+  "home_library_code": "xffl",
+  "home_library": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726222"
+  },
+  "home_library_code": "xfs",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726223"
+  },
+  "home_library_code": "xfsaa",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726224"
+  },
+  "home_library_code": "xtnmx",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726225"
+  },
+  "home_library_code": "yb",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726226"
+  },
+  "home_library_code": "yb2",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726227"
+  },
+  "home_library_code": "yb4",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726228"
+  },
+  "home_library_code": "yb8",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726229"
+  },
+  "home_library_code": "yb9",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622a"
+  },
+  "home_library_code": "ybj",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622b"
+  },
+  "home_library_code": "yjj",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622c"
+  },
+  "home_library_code": "ylw",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622d"
+  },
+  "home_library_code": "ylwaa",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622e"
+  },
+  "home_library_code": "z2aaa",
+  "home_library": "Unknown"
+}]
+)
+```
+
+## Notification Preference Data
+```
+db.notification_pref.insertMany(
+[{
+  "_id": {
+    "$oid": "690c3f34e674102d87726230"
+  },
+  "notif_pref_code": "-",
+  "notif_pref": "None"
+},
+{
+  "_id": {
+    "$oid": "690c3f34e674102d87726231"
+  },
+  "notif_pref_code": "a",
+  "notif_pref": "Print"
+},
+{
+  "_id": {
+    "$oid": "690c3f34e674102d87726232"
+  },
+  "notif_pref_code": "p",
+  "notif_pref": "Phone"
+},
+{
+  "_id": {
+    "$oid": "690c3f34e674102d87726233"
+  },
+  "notif_pref_code": "z",
+  "notif_pref": "Email"
+}]
+)
+```
+
+## Patron Types Data
+```
+db.patron_types.insertMany(
+[{
+  "_id": {
+    "$oid": "690c3f3be674102d87726235"
+  },
+  "patron_type_code": 0,
+  "patron_type": "Adult"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726236"
+  },
+  "patron_type_code": 1,
+  "patron_type": "Juvenile"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726237"
+  },
+  "patron_type_code": 2,
+  "patron_type": "Teen"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726238"
+  },
+  "patron_type_code": 3,
+  "patron_type": "Senior"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726239"
+  },
+  "patron_type_code": 4,
+  "patron_type": "Welcome"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d8772623a"
+  },
+  "patron_type_code": 5,
+  "patron_type": "Staff"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d8772623b"
+  },
+  "patron_type_code": 10,
+  "patron_type": "Visitor"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d8772623c"
+  },
+  "patron_type_code": 11,
+  "patron_type": "Business"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d8772623d"
+  },
+  "patron_type_code": 12,
+  "patron_type": "Library By Mail"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d8772623e"
+  },
+  "patron_type_code": 15,
+  "patron_type": "Teacher Card"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d8772623f"
+  },
+  "patron_type_code": 16,
+  "patron_type": "Digital Access Card"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726240"
+  },
+  "patron_type_code": 17,
+  "patron_type": "Bibliocommons"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726241"
+  },
+  "patron_type_code": 55,
+  "patron_type": "Retired Staff"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726242"
+  },
+  "patron_type_code": 100,
+  "patron_type": "At User Adult"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726243"
+  },
+  "patron_type_code": 101,
+  "patron_type": "At User Juvenile"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726244"
+  },
+  "patron_type_code": 102,
+  "patron_type": "At User Teen"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726245"
+  },
+  "patron_type_code": 103,
+  "patron_type": "At User Senior"
+},
+{
+  "_id": {
+    "$oid": "690c3f3be674102d87726246"
+  },
+  "patron_type_code": 104,
+  "patron_type": "At User Welcome"
+}]
+)
+```
+
+## Patron Data
+This file is too large for github to display.

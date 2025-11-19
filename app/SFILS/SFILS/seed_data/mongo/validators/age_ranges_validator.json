@@ -1,0 +1,19 @@
+{
+  "collMod": "age_ranges",
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": [ "age_range_code", "age_range" ],
+      "properties": {
+        "age_range_code": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        },
+        "age_range": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        }
+      }
+    }
+  }
+}
