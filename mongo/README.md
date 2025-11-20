@@ -22,7 +22,7 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
    - You can check your .NET version in the CLI with `dotnet --version`
      - Or even better, check the control panel for your installed programs. `dotnet --version` shows the latest install.
    - [Here](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.415-windows-x64-installer) is a link to Microsoft .NET SDK 8 downloads
- - In the app folder, open SFILS.sln
+ - In the [SFILS folder](https://github.com/thatcherty/SFILS_Assign1/tree/main/mongo/SFILS), open SFILS.sln
  - Run the app by selecting https at the top
 ![HTTPS start](https://raw.githubusercontent.com/thatcherty/SFILS_Assign1/main/docs/photos/Start_App_Screenshot.png)
  - This should automatically open a webpage at https://localhost:7297/
