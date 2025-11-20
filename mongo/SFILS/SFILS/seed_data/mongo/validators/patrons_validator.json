@@ -1,0 +1,72 @@
+{
+  "collMod": "patron",
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": [
+        "patron_id",
+        "patron_type_code",
+        "age_range_code",
+        "home_library_code",
+        "notif_pref_code",
+        "year_reg",
+        "total_checkouts",
+        "total_renewals",
+        "circ_active_mo",
+        "circ_active_yr",
+        "prov_email",
+        "in_county"
+      ],
+      "properties": {
+        "patron_id": {
+          "bsonType": "int",
+          "description": "must be a integer and is required"
+        },
+        "patron_type_code": {
+          "bsonType": "int",
+          "description": "must be an integer and is required"
+        },
+        "age_range_code": {
+          "bsonType": "int",
+          "description": "must be an integer and is required"
+        },
+        "home_library_code": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        },
+        "notif_pref_code": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        },
+        "year_reg": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        },
+        "total_checkouts": {
+          "bsonType": "int",
+          "description": "must be a integer and is required"
+        },
+        "total_renewals": {
+          "bsonType": "int",
+          "description": "must be a integer and is required"
+        },
+        "circ_active_mo": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        },
+        "circ_active_yr": {
+          "bsonType": "string",
+          "description": "must be a string and is required"
+        },
+        "prov_email": {
+          "bsonType": "int",
+          "description": "must be a integer and is required"
+        },
+        "in_county": {
+          "bsonType": "int",
+          "description": "must be a integer and is required"
+        }
+      }
+    }
+  }
+}

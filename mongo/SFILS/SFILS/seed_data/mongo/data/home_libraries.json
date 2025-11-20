@@ -1,0 +1,476 @@
+[{
+  "_id": {
+    "$oid": "690c3f22e674102d877261eb"
+  },
+  "home_library_code": "0",
+  "home_library": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ec"
+  },
+  "home_library_code": "a5",
+  "home_library": "Anza"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ed"
+  },
+  "home_library_code": "b2",
+  "home_library": "Bayview"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ee"
+  },
+  "home_library_code": "b4",
+  "home_library": "Bernal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ef"
+  },
+  "home_library_code": "b4aaa",
+  "home_library": "Bernal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f0"
+  },
+  "home_library_code": "c2",
+  "home_library": "Chinatown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f1"
+  },
+  "home_library_code": "e7",
+  "home_library": "Eureka Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f2"
+  },
+  "home_library_code": "e9",
+  "home_library": "Excelsior"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f3"
+  },
+  "home_library_code": "e9aaa",
+  "home_library": "Excelsior"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f4"
+  },
+  "home_library_code": "g4",
+  "home_library": "Glen Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f5"
+  },
+  "home_library_code": "g4aaa",
+  "home_library": "Glen Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f6"
+  },
+  "home_library_code": "g6",
+  "home_library": "Golden Gate"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f7"
+  },
+  "home_library_code": "i5",
+  "home_library": "Ingleside"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f8"
+  },
+  "home_library_code": "m2",
+  "home_library": "Marina"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261f9"
+  },
+  "home_library_code": "m4",
+  "home_library": "Merced"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fa"
+  },
+  "home_library_code": "m4aaa",
+  "home_library": "Merced"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fb"
+  },
+  "home_library_code": "m6",
+  "home_library": "Mission"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fc"
+  },
+  "home_library_code": "m8",
+  "home_library": "Mission Bay"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fd"
+  },
+  "home_library_code": "m8aaa",
+  "home_library": "Mission Bay"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261fe"
+  },
+  "home_library_code": "n4",
+  "home_library": "Noe Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d877261ff"
+  },
+  "home_library_code": "n6",
+  "home_library": "North Beach"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726200"
+  },
+  "home_library_code": "n6aaa",
+  "home_library": "North Beach"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726201"
+  },
+  "home_library_code": "none",
+  "home_library": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726202"
+  },
+  "home_library_code": "o2",
+  "home_library": "Ocean View"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726203"
+  },
+  "home_library_code": "o2aaa",
+  "home_library": "Ocean View"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726204"
+  },
+  "home_library_code": "o7",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726205"
+  },
+  "home_library_code": "o7aaa",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726206"
+  },
+  "home_library_code": "o7zaa",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726207"
+  },
+  "home_library_code": "o7zja",
+  "home_library": "Ortega "
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726208"
+  },
+  "home_library_code": "p1",
+  "home_library": "Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726209"
+  },
+  "home_library_code": "p1aaa",
+  "home_library": "Park"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620a"
+  },
+  "home_library_code": "p3",
+  "home_library": "Parkside"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620b"
+  },
+  "home_library_code": "p3aaa",
+  "home_library": "Parkside"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620c"
+  },
+  "home_library_code": "p5",
+  "home_library": "Portola"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620d"
+  },
+  "home_library_code": "p5aaa",
+  "home_library": "Portola"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620e"
+  },
+  "home_library_code": "p5taa",
+  "home_library": "Portola"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772620f"
+  },
+  "home_library_code": "p7",
+  "home_library": "Potrero"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726210"
+  },
+  "home_library_code": "p7aaa",
+  "home_library": "Potrero"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726211"
+  },
+  "home_library_code": "p9",
+  "home_library": "Presidio"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726212"
+  },
+  "home_library_code": "r3",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726213"
+  },
+  "home_library_code": "r3aaa",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726214"
+  },
+  "home_library_code": "r3j",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726215"
+  },
+  "home_library_code": "r3jaa",
+  "home_library": "Richmond"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726216"
+  },
+  "home_library_code": "s7",
+  "home_library": "Sunset"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726217"
+  },
+  "home_library_code": "s7aaa",
+  "home_library": "Sunset"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726218"
+  },
+  "home_library_code": "s7j",
+  "home_library": "Sunset"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726219"
+  },
+  "home_library_code": "v3",
+  "home_library": "Visitacion Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621a"
+  },
+  "home_library_code": "v3ala",
+  "home_library": "Visitacion Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621b"
+  },
+  "home_library_code": "v3awk",
+  "home_library": "Visitacion Valley"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621c"
+  },
+  "home_library_code": "w2",
+  "home_library": "West Portal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621d"
+  },
+  "home_library_code": "w2aaa",
+  "home_library": "West Portal"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621e"
+  },
+  "home_library_code": "w4",
+  "home_library": "Western Addition"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772621f"
+  },
+  "home_library_code": "w4aaa",
+  "home_library": "Western Addition"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726220"
+  },
+  "home_library_code": "x",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726221"
+  },
+  "home_library_code": "xffl",
+  "home_library": "Unknown"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726222"
+  },
+  "home_library_code": "xfs",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726223"
+  },
+  "home_library_code": "xfsaa",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726224"
+  },
+  "home_library_code": "xtnmx",
+  "home_library": "Main"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726225"
+  },
+  "home_library_code": "yb",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726226"
+  },
+  "home_library_code": "yb2",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726227"
+  },
+  "home_library_code": "yb4",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726228"
+  },
+  "home_library_code": "yb8",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d87726229"
+  },
+  "home_library_code": "yb9",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622a"
+  },
+  "home_library_code": "ybj",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622b"
+  },
+  "home_library_code": "yjj",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622c"
+  },
+  "home_library_code": "ylw",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622d"
+  },
+  "home_library_code": "ylwaa",
+  "home_library": "Bookmobile"
+},
+{
+  "_id": {
+    "$oid": "690c3f22e674102d8772622e"
+  },
+  "home_library_code": "z2aaa",
+  "home_library": "Unknown"
+}]

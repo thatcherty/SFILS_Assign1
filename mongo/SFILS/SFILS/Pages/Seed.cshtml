@@ -1,0 +1,27 @@
+﻿@page
+@model SFILS.Pages.SeedModel
+@{
+    ViewData["Title"] = "Seed MongoDB (SFILS)";
+}
+
+<h1>Seed MongoDB (SFILS)</h1>
+
+@if (Model.Ran)
+{
+    if (Model.HasError)
+    {
+        <div class="alert alert-danger">
+            @Model.ResultMessage
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success">
+            @Model.ResultMessage
+        </div>
+    }
+}
+
+<form method="post">
+    <button type="submit" class="btn btn-primary">Run Seed</button>
+</form>
