@@ -21,11 +21,11 @@ namespace SFILS.Pages
             new()
             {
                 // collectionName          validator file                       data file
-                ["age_ranges"] = ("age_ranges.validator.json", "age_ranges.data.json"),
-                ["home_libraries"] = ("home_libraries.validator.json", "home_libraries.data.json"),
-                ["notification_pref"] = ("notification_pref.validator.json", "notification_pref.data.json"),
-                ["patron_types"] = ("patron_types.validator.json", "patron_types.data.json"),
-                ["patrons"] = ("patrons.validator.json", "patrons.data.json"),
+                ["age_ranges"] = ("age_ranges_validator.json", "age_ranges.json"),
+                ["home_libraries"] = ("home_libraries_validator.json", "home_libraries.json"),
+                ["notification_pref"] = ("notification_pref_validator.json", "notification_pref.json"),
+                ["patron_types"] = ("patron_types_validator.json", "patron_types.json"),
+                ["patrons"] = ("patrons_validator.json", "patrons.json"),
             };
 
         public string? ResultMessage { get; set; }
