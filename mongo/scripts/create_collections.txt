@@ -24,8 +24,8 @@ db.runCommand( { collMod: "age_ranges",
          required: [ "age_range_code", "age_range" ],
          properties: {
             age_range_code: {
-               bsonType: "string",
-               description: "must be a string and is required"
+               bsonType: "int",
+               description: "must be a integer and is required"
             },
             age_range: {
                bsonType: "string",
@@ -105,7 +105,7 @@ db.runCommand( { collMod: "patron_types",
 
 ## Patrons Collection
 ```bash
-db.runCommand( { collMod: "patron_types",
+db.runCommand( { collMod: "patrons",
    validator: {
       $jsonSchema: {
          bsonType: "object",
