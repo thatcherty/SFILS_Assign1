@@ -899,4 +899,4 @@ db.patron_types.insertMany(
 ```
 
 ## Patron Data
-This file is too large for github to display.
+This file is too save so it is kept in a zip file. If I add the contents here, it will not be able to save this file either.
