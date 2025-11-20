@@ -13,7 +13,7 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
 
 ## Unzip Patrons
  - The patrons json file is too large to store on GitHub without zipping, so you will need to unzip this file before attempting to seed the database.
- - You can find the file [here](https://github.com/thatcherty/SFILS_Assign1/tree/main/mongo/SFILS/SFILS/seed_data/data) called patrons
+ - You can find the file [here](https://github.com/thatcherty/SFILS_Assign1/tree/main/mongo/SFILS/SFILS/seed_data/mongo/data) called patrons
  - Unzip it into the data folder
 
 ## App
