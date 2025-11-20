@@ -17,8 +17,7 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - Unzip it into the data folder
 
 ## App
- - This app requires Visual Studio and .NET SDK 8.0 or later
-   - With most things, it's possible it can work with an earlier version, but to be safe, 8 is recommended
+ - This app requires Visual Studio and .NET SDK 8.0
    - You can check your .NET version in the CLI with `dotnet --version`
      - Or even better, check the control panel for your installed programs. `dotnet --version` shows the latest install.
    - [Here](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.415-windows-x64-installer) is a link to Microsoft .NET SDK 8 downloads
