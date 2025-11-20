@@ -43,3 +43,6 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - You will see the message below once it has successfully seeded the database:
 ![Mongo_Init](https://raw.githubusercontent.com/thatcherty/SFILS_Assign1/main/docs/photos/Mongo_Init.png) 
  - Select **Mongo** at the top to return to the home page and view the data
+
+# Some Things to Note
+ - In the Home Library filter, you will see the same name appear more than once. This is because the filter looks at the Home Library Code as the unique value. The code is different for each value shown, but the name of the library is the same.
