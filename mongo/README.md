@@ -11,6 +11,11 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
 ### Some Checks 
  - Verify that MongoDB is running on port 27017, as this is required for the app connection
 
+## Unzip Patrons
+ - The patrons json file is too large to store on GitHub without zipping, so you will need to unzip this file before attempting to seed the database.
+ - You can find the file [here](https://github.com/thatcherty/SFILS_Assign1/tree/main/mongo/SFILS/SFILS/seed_data/data) called patrons
+ - Unzip it into the data folder
+
 ## App
  - This app requires Visual Studio and .NET SDK 8.0 or later
    - With most things, it's possible it can work with an earlier version, but to be safe, 8 is recommended
@@ -23,7 +28,7 @@ git clone https://github.com/thatcherty/SFILS_Assign1.git
  - This should automatically open a webpage at https://localhost:7297/
    - If not, click the link above, and it should take you there
 
-> Note: If you do not have Visual Studio but do have .NET SDK 8.0, you can navigate to the project directory [located here](https://github.com/thatcherty/SFILS_Assign1/tree/main/app/SFILS/SFILS) on your local file explorer.
+> Note: If you do not have Visual Studio but do have .NET SDK 8.0, you can navigate to the project directory [located here](https://github.com/thatcherty/SFILS_Assign1/tree/main/mongo/SFILS/SFILS) on your local file explorer.
 > 
 > In a command line, enter `dotnet run`
 >
